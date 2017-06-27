@@ -1,27 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Text;
+﻿using System.Net;
 using System.Threading.Tasks;
-using System.Web.Http;
 using Newtonsoft.Json;
-using WebApplication;
 using Xunit;
 
 namespace Test
 {
-    public class Test
+    public class Test : WebResourceApiTestBase
     {
         [Fact]
         public async Task when_get_message_api_should_return_expect_result()
         {
-            var httpConfiguration = new HttpConfiguration();
-            WebInit.Init(httpConfiguration);
-            var httpServer = new HttpServer(httpConfiguration);
-            var httpClient = new HttpClient(httpServer);
-
-            var response = await httpClient.GetAsync("http://www.web.com/message");
+            var response = await Client.GetAsync("http://www.web.com/message");
 
             Assert.Equal(response.StatusCode, HttpStatusCode.OK);
 

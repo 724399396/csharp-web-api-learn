@@ -14,7 +14,7 @@ namespace WebApplication
         {
             var globalConfiguration = GlobalConfiguration.Configuration;
 
-            WebInit.Init(globalConfiguration);
+            Bootstrapper.Init(globalConfiguration);
         }
 
         protected void Session_Start(object sender, EventArgs e)

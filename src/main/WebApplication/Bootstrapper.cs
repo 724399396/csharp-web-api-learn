@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace WebApplication
 {
-    public class WebInit
+    public class Bootstrapper
     {
         public static void Init(HttpConfiguration globalConfiguration)
         {
