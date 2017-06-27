@@ -7,18 +7,18 @@ namespace Test
 {
     public class WebResourceApiTestBase : IDisposable
     {
-        readonly HttpServer httpServer;
+        readonly HttpServer _httpServer;
         protected HttpClient Client { get; }
 
         public WebResourceApiTestBase()
         {
-            httpServer = CreateHttpServer();
+            _httpServer = CreateHttpServer();
             Client = CreateHttpClient();
         }
 
         HttpClient CreateHttpClient()
         {
-            return new HttpClient(httpServer);
+            return new HttpClient(_httpServer);
         }
 
         HttpServer CreateHttpServer()
@@ -31,7 +31,7 @@ namespace Test
 
         public void Dispose()
         {
-            httpServer?.Dispose();
+            _httpServer?.Dispose();
             Client?.Dispose();
         }
     }
