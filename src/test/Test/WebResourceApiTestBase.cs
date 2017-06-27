@@ -18,7 +18,10 @@ namespace Test
 
         HttpClient CreateHttpClient()
         {
-            return new HttpClient(_httpServer);
+            return new HttpClient(_httpServer)
+            {
+                BaseAddress = new Uri("http://www.web.com")
+            };
         }
 
         HttpServer CreateHttpServer()
